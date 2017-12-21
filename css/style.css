@@ -1,0 +1,210 @@
+/*
+test file stylesheet
+author: m.ambroselli
+date:   Mo, 18. Dez, 2017
+
+@body
+@header
+  @logo
+  @navigation
+@container
+@footer
+**/
+
+/* body */
+html, body{
+  margin: 0px;
+  width:100%;
+  height:150%;
+}
+body{
+  font-family: 'Quicksand', sans-serif;
+}
+h1, h2, h3, h4, h5{
+  font-family: 'Anton', sans-serif;
+  color:#110033;
+}
+
+/* @header */
+header{
+  position: relative;
+  width:90%;
+  height: 8em;
+  padding: 0 5%;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+header.fixed{
+  position:fixed;
+  top:0;
+  width: 90%;
+  height: auto;
+  padding: 0 5%;
+  background: #fff;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+header p{
+  font-family: 'Anton', sans-serif;
+  color:#110033;
+  margin: auto 0;
+}
+header .menu{
+  display: none;
+  float: right;
+  width: 1em;
+  height: auto;
+  font-size: 2.3em;
+  line-height: 3.3em;
+  cursor: pointer;
+  color: #110033;
+}
+
+/* @logo */
+.logo{
+  display: block;
+  float: left;
+  width: 2em;
+  height: auto;
+  font-size: 2.3em;
+  line-height: 3.3em;
+}
+
+/* @header fixed after scrolling*/
+header.fixed .logo{
+  font-size: 1.3em;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+header.fixed .menu{ font-size: 1.3em;}
+
+header.fixed nav{ line-height: 4.3em;}
+
+/* @navigation */
+nav{
+  width:auto;
+  height: auto;
+  float: right;
+  color: #110033;
+  line-height: 7.3em;
+}
+nav > a{
+  color:#110033;
+  text-decoration: none;
+  margin: 0 0.5em 0 0;
+}
+nav a:hover{
+  text-decoration: underline;
+}
+
+/* @section */
+section{
+  width: 90%;
+  margin: 0.5em auto;
+}
+
+/* @container */
+.container {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
+    grid-template-rows: repeat(2, 200px);
+}
+.container > div{
+    background: #beb5ce;
+    color:#110033;
+    padding: 0.5em;
+}
+
+/* @panorama */
+.panorama{
+  width: 100%;
+  height:12em;
+  background: #beb5ce;
+}
+
+/* @panorama parallax */
+/*image license = <a href="https://www.freepik.com/free-photo/3d-render-of-wild-animals-in-a-sunset-landscape_1138363.htm">Designed by Freepik</a> */
+.parallax{
+  width: 100%;
+  height:12em;
+  background-image: url("../img/wild.jpg");
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* @footer */
+footer{
+  background: #c2c2c2;
+  width: 100%;
+  text-align: center;
+}
+
+/* @contact - fixed box on bottom */
+.contact{
+  width: 12em;
+  height: 2em;
+  position: fixed;
+  bottom: 0;
+  right: 5%;
+  background: #3e0b42;
+  color: #fff;
+  padding: 0.25em 1em;
+  cursor:pointer;
+}
+.contact:hover{
+  background: #623566;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.contact.clicked{
+  height:16em;
+  width:20%;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.contact i{
+  float:right;
+}
+.contact .box{ display: none;}
+.contact.clicked .box{
+  display:block;
+}
+.contact .box form label{
+    width:100%;
+}
+
+
+/* @media querys *************************************/
+@media all and (max-width: 640px) {
+    header nav{ display:none;}
+    header .menu{ display: block;}
+
+    .contact{
+      width:100%;
+      left:0;
+      right:0;
+      box-sizing:border-box;
+    }
+    .contact.clicked{
+      height:16em;
+      width:100%;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+    }
+}
