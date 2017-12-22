@@ -1,5 +1,12 @@
 // Reference: https://stackoverflow.com/questions/10994909/do-something-when-page-is-scrolling-and-have-some-position
 
+$(window).on("load",function(){
+      // Animate loader off screen
+			$("#loader").animate({
+				'width': '100%'
+			}, 1000);
+});
+
 $(document).ready(function(){
 
     //header function
@@ -11,9 +18,9 @@ $(document).ready(function(){
         };
     });
 
-    $('.contact , nav a[href$="#contact"]').click(function(){
+    //contact
+    $('.contact i , nav a[href$="#contact"]').click(function(){
       $('.contact').toggleClass('clicked');
-      $('.contact i').toggleClass('icon-chevron_up icon-chevron_down');
-
+      $('.contact i').toggleClass('icon-message icon-cross_mark');
     });
 });

@@ -1,15 +1,22 @@
-/*
+/***************************************************************
 test file stylesheet
 author: m.ambroselli
 date:   Mo, 18. Dez, 2017
+*
+- @body
+- @header
+   @logo
+   @navigation
+- @container
+- @panorama
+  @panorama parallax
+- @footer
 
-@body
-@header
-  @logo
-  @navigation
-@container
-@footer
-**/
+- @transitions
+- @media querys
+*
+****************************************************************
+****************************************************************/
 
 /* body */
 html, body{
@@ -25,16 +32,19 @@ h1, h2, h3, h4, h5{
   color:#110033;
 }
 
+/* @loader*/
+#loader{
+    height:0.25em;
+    background: #110033;
+    width:0%;
+}
+
 /* @header */
 header{
   position: relative;
   width:90%;
   height: 8em;
   padding: 0 5%;
-  -webkit-transition: all 0.5s linear;
-  -moz-transition: all 0.5s linear;
-  -o-transition: all 0.5s linear;
-  transition: all 0.5s linear;
 }
 header.fixed{
   position:fixed;
@@ -43,14 +53,11 @@ header.fixed{
   height: auto;
   padding: 0 5%;
   background: #fff;
-  -webkit-transition: all 0.5s linear;
-  -moz-transition: all 0.5s linear;
-  -o-transition: all 0.5s linear;
-  transition: all 0.5s linear;
+  z-index: 9;
 }
 header p{
   font-family: 'Anton', sans-serif;
-  color:#110033;
+  color:#93617b;
   margin: auto 0;
 }
 header .menu{
@@ -77,10 +84,6 @@ header .menu{
 /* @header fixed after scrolling*/
 header.fixed .logo{
   font-size: 1.3em;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 header.fixed .menu{ font-size: 1.3em;}
 
@@ -106,27 +109,34 @@ nav a:hover{
 /* @section */
 section{
   width: 90%;
-  margin: 0.5em auto;
+  margin: 3em auto;
 }
 
 /* @container */
 .container {
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 3em;
     grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
     grid-template-rows: repeat(2, 200px);
 }
 .container > div{
-    background: #beb5ce;
+    position: relative;
+    background: #8e7381;
     color:#110033;
     padding: 0.5em;
+}
+.container > div > span{
+    font-size: 2em;
+    font-family: 'Anton', sans-serif;
+    position: absolute;
+    top: -30px;
 }
 
 /* @panorama */
 .panorama{
   width: 100%;
   height:12em;
-  background: #beb5ce;
+  background: #8e7381;
 }
 
 /* @panorama parallax */
@@ -141,6 +151,11 @@ section{
   background-repeat: no-repeat;
   background-size: cover;
 }
+.parallax.wild{ background-image: url("../img/wild.jpg");}
+.parallax.sky{
+  background-image: url("../img/sky.jpg");
+  background-position: 0 -176px;
+}
 
 /* @footer */
 footer{
@@ -151,7 +166,7 @@ footer{
 
 /* @contact - fixed box on bottom */
 .contact{
-  width: 12em;
+  width: 2em;
   height: 2em;
   position: fixed;
   bottom: 0;
@@ -163,28 +178,40 @@ footer{
 }
 .contact:hover{
   background: #623566;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-.contact.clicked{
-  height:16em;
-  width:20%;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 .contact i{
   float:right;
+  font-size: 1.8em;
+}
+/* @contact box OPEN */
+.contact.clicked{
+  height:100%;
+  width:20%;
+  right:0;
 }
 .contact .box{ display: none;}
+.contact.clicked .icon-message{display:none;}
+.contact .icon-message{display:block;}
+.contact.clicked .icon-message{display:none;}
 .contact.clicked .box{
   display:block;
 }
 .contact .box form label{
     width:100%;
+}
+
+/* @transitions ****************/
+.transition_ease{
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.transition_linear{
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
 }
 
 
